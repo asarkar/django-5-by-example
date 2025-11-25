@@ -1,0 +1,55 @@
+[project]
+name = "django-5-by-example"
+version = "0.0.1"
+requires-python = ">=3.14"
+
+dependencies = [
+  "django==5.2.*"
+]
+
+[dependency-groups]
+dev = [
+  "pytest",
+#  "tomlkit"
+]
+lint = [
+  "ruff",
+  "mypy",
+  "django-stubs",
+  "django-stubs-ext"
+]
+
+[tool.uv]
+default-groups = "all"
+
+[tool.mypy]
+# https://mypy.readthedocs.io/en/stable/command_line.html#cmdoption-mypy-exclude
+exclude = [ "venv", "build"]
+ignore_errors = false
+warn_return_any = true
+disallow_untyped_defs = true
+plugins = ["mypy_django_plugin.main"]
+
+[tool.django-stubs]
+# Intentionally left empty, `django_settings_module` will be read from DJANGO_SETTINGS_MODULE env var.
+# https://github.com/typeddjango/django-stubs/issues/2912
+
+[tool.ruff]
+line-length = 100
+extend-exclude = ["build", "*.egg-info"]
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]

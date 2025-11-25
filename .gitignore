@@ -1,0 +1,44 @@
+# http://git-scm.com/docs/gitignore
+
+ # Mac
+.DS_Store
+
+# PyCharm
+.vscode/
+.idea/
+
+# Python
+*.pyc
+__pycache__/
+env/
+venv/
+
+# Database files
+*.sqlite3
+
+# Media files
+media/
+
+# Static files (collected)
+staticfiles/
+
+# Log files
+*.log
+
+# Sensitive configuration
+settings_local.py
+.env
+
+# pip
+build
+dist
+*.egg-info
+
+# Pytest
+.pytest_cache
+
+# Mypy
+.mypy_cache
+
+# ruff
+.ruff_cache

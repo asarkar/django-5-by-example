@@ -32,9 +32,9 @@ done
 # `basedir` is the repository root
 basedir="${1:-$(pwd)}"
 
-while IFS='' read -r -d '' chapter; do
+while IFS='' read -r -d '' manage; do
   # `project_root_dir` contains the `manage.py` file
-  project_root_dir=${chapter%/*}
+  project_root_dir=${manage%/*}
   settings=$(find "$project_root_dir" -type f -name "settings.py" -maxdepth 2 -print -quit)
   # `project_dir` contains the `settings.py` file
   project_dir=${settings%/*}

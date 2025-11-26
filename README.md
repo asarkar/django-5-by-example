@@ -9,7 +9,28 @@ Official GitHub repo: https://github.com/PacktPublishing/Django-5-By-Example
 
 ## Development
 
+**Download all dependencies**
 ```
 % uv sync
+```
+**Manually activate venv**
+```
+% source ./.venv/bin/activate
+```
+
+**Deactivate venv**
+```
+% deactivate
+```
+
+**Run tests**
+```
 % ./.github/run.sh <directory>
 ```
+
+`uv` will "search upwards" from a given directory until it finds `pyproject.toml`, `.venv`, or `uv` 
+configuration files. A directory containing any of these files is considered the project root. `uv` 
+will use a `.venv/` if found in the root.
+
+Thus, running a command like `uv run --directory ch01 python -c "import sys; print(sys.executable)"` 
+doesn't require manual activation of venv.

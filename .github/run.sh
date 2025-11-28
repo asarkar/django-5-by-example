@@ -29,8 +29,9 @@ while (( $# > 0 )); do
    esac
 done
 
-# `basedir` is the repository root
-basedir="${1:-$(pwd)}"
+# `root_dir` is the repository root
+root_dir="$(git rev-parse --show-toplevel)"
+base_dir="${1:-$root_dir}"
 
 while IFS='' read -r -d '' manage; do
   # `project_root_dir` contains the `manage.py` file
@@ -57,7 +58,7 @@ while IFS='' read -r -d '' manage; do
     uv run \
       --directory "$project_root_dir" \
       mypy . \
-      --config-file="$basedir/pyproject.toml" \
+      --config-file="$root_dir/pyproject.toml" \
       --strict
   fi
-done < <(find "$basedir" -type f -name "manage.py" -maxdepth 3 -print0)
+done < <(find "$base_dir" -type f -name "manage.py" -maxdepth 3 -print0)

@@ -4,7 +4,9 @@ version = "0.0.1"
 requires-python = ">=3.14"
 
 dependencies = [
-  "django~=5.0"
+  "django~=5.0",
+  "django-taggit",
+  "markdown"
 ]
 
 [dependency-groups]
@@ -17,7 +19,8 @@ lint = [
   "ruff",
   "mypy",
   "django-stubs",
-  "django-stubs-ext"
+  "django-stubs-ext",
+  "types-Markdown"
 ]
 
 [tool.uv]
@@ -34,6 +37,16 @@ plugins = ["mypy_django_plugin.main"]
 [tool.django-stubs]
 # Intentionally left empty, `django_settings_module` will be read from DJANGO_SETTINGS_MODULE env var.
 # https://github.com/typeddjango/django-stubs/issues/2912
+
+[[tool.mypy.overrides]]
+module = [
+  "taggit.*"
+]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "*.migrations.*"
+ignore_errors = true
 
 [tool.ruff]
 line-length = 100

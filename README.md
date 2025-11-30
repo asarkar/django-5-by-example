@@ -7,6 +7,7 @@ Official GitHub repo: https://github.com/PacktPublishing/Django-5-By-Example
 ## Contents
 1. [Building a Blog Application](ch01)
 2. [Enhancing Your Blog and Adding Social Features](ch02)
+3. [Extending Your Blog Application](ch03)
 
 ## Development
 
